@@ -27,43 +27,30 @@ bool solve(int k, int* array, const int size, bool debug) {
   }
 
   const int rows = max;
-  bool matrix[rows+1][size];
 
-  for (int i = 0; i < rows; i++) {
-    for (int j = 0; j < size; j++) {
-      matrix[i][j] = false; 
-    } 
+  bool sol[rows+1];
+  for (int i = 0; i < rows + 1; i++) {
+    sol[i] = false; 
   }
 
   for (int i = 0; i < size; i++) {
     for (int sum = 0; sum < rows; sum++) {
-      if (matrix[sum][i] && sum + array[i] < rows + 1) {
-        for (int k = i; k < size; k++) {
-          matrix[sum + array[i]][k] = true; 
-        }
-      } 
-    }
-    for (int j = i; j < size; j++) {
-      matrix[array[i]][j] = true; 
-    }
+      if (sol[sum] && sum + array[i] < rows+1) {
+        sol[sum+array[i]] = true; 
+      }
+    } 
+    sol[array[i]] = true;
   }
 
   if (debug) {
-    for (int i = 0; i < rows; i++) {
-      cout << i << " ";
-      for (int j = 0; j < size; j++) {
-        cout << matrix[i][j] << " ";
-      }
-      cout << endl;
+    for (int i = 0; i < rows + 1; i++) {
+      cout << sol[i] << " ";
     }
   }
-  cout << endl;
 
-  for (int i = 0; i < size; i++) {
-    if (matrix[k][i]) {
-      return true; 
-    } 
-  }
+  if (sol[k]) {
+    return true; 
+  } 
   return false;
 }
 /*
