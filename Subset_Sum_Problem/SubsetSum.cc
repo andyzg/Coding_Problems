@@ -53,12 +53,3 @@ bool solve(int k, int* array, const int size, bool debug) {
   } 
   return false;
 }
-/*
-int main() {
-  const int size = 5;
-  int array[size] = {1,2,3,4,5};
-  bool good = solve(10, array, size);
-  if (good) {
-    cout << "IT WORKS!" << endl; 
-  }
-}*/
