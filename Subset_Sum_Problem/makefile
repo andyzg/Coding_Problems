@@ -6,3 +6,5 @@ SubsetSum:
 test: SubsetSum
 	./SubsetSum.o
 
+clean:
+	rm ./SubsetSum.o
