@@ -1,4 +1,8 @@
 """
+    This solution sucks
+    let's redo it in p2.py
+"""
+"""
 C = {1, 2, 2, 3, 4, 5}
 Sum = 5
 
@@ -13,7 +17,7 @@ def main():
   print solve([1, 2, 2, 3, 4, 5], 5)
 
 def solve(numbers, total):
-  sorted(numbers)
+  numbers = sorted(numbers)
   current_list = []
   answer = Set()
   get_sum(numbers, total, answer, current_list)
@@ -30,7 +34,6 @@ def get_sum(numbers, total, answer, current_list):
     current_list.append(numbers[i])
     get_sum(numbers[i+1:], total - numbers[i], answer, current_list)
     current_list.pop()
-    # print answer, current_list
   return
 
 
